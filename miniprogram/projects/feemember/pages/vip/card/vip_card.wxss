@@ -1,0 +1,76 @@
+@import "../../../style/skin.wxss";
+
+.main {
+	padding: 30rpx 20rpx;
+}
+
+.card {
+	width: 100%;
+	background-color: #fff;
+	width: 100%;
+	padding: 30rpx 40rpx;
+	border-radius: 10rpx;
+	border: 2rpx solid #dbb183;
+	background-image: linear-gradient(45deg, #D7B086, #E1C29F, #EBD5B5);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+.card .mark {
+	position: absolute;
+	top: 10rpx;
+	left: 10rpx;
+	font-size: 140rpx;
+	color: #fff;
+	opacity: .2;
+	z-index: 1;
+}
+
+.card .line1 {
+	width: 100%;
+	padding: 0;
+	text-align: right;
+	font-weight: bold;
+	font-size: 24rpx;
+	color: #bd884f;
+	z-index: 9;
+	opacity: .7;
+}
+
+.card .line2 {
+	z-index: 9;
+	position: relative;
+	margin-top: 20rpx;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.card .line2 .left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin-right: 20rpx;
+}
+
+.card .line2 .left .name {
+	font-size: 34rpx;
+	color: #222;
+	font-weight: bold;
+	padding: 10rpx 6rpx;
+	margin-bottom: 10rpx;
+	border-bottom: 2rpx dashed #a3815d;
+}
+
+.card .line2 .left .txt {
+	font-size: 24rpx;
+	color: #444;
+	padding: 4rpx 0;
+}
+
+.card .line2 .right image {
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+	border: 2rpx solid #9b7955;
+}

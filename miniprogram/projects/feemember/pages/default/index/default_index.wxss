@@ -1,0 +1,64 @@
+@import "../../../style/skin.wxss";
+
+page {
+	background-color: #F8EFE4 !important;
+}
+
+.main {
+	padding: 0; 
+}
+
+.top {
+	width: 100%;
+}
+
+.top image {
+	width: 100%;
+}
+
+.box {
+	width: 100%;
+	padding: 70rpx 50rpx ;
+	border-radius: 45rpx; 
+	margin-top: -140rpx;
+	position: relative;
+	background-color: #fff;
+}
+
+.box .inner {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap; 
+
+}
+
+.box .inner .item {
+	width: calc((100% - 40rpx) / 2); 
+	margin-bottom: 30rpx;
+	min-height: 200rpx;
+	border-radius: 20rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 5rpx 5rpx 20rpx 1rpx rgba(114, 130, 138, 0.2);
+	background-image: linear-gradient(145deg, #D6AF85, #f0dec5);
+} 
+
+.box .inner .item:nth-child(2n+1) {
+	margin-right: 40rpx;
+}
+
+.box .inner .item .ix {
+	font-size: 60rpx;
+	margin-right: 15rpx;
+	color: #df9f5a;
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 10rpx;
+	border-radius: 10rpx;
+}
+
+
+.box .inner .item .title {
+	font-size: 32rpx;
+	font-weight: bold;
+}

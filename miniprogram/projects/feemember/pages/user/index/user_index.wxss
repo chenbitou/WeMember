@@ -1,0 +1,266 @@
+@import "../../../style/skin.wxss";
+
+.main {
+	width: 100%;
+	padding: 20rpx;
+}
+
+.list {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 0rpx;
+}
+
+.list .item {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	background-color: #fff;
+	border-radius: 20rpx;
+	padding: 0rpx;
+	margin-bottom: 60rpx;
+}
+
+
+.list .item .left {
+	margin-right: 30rpx;
+	position: relative;
+	width: 180rpx;
+	height: 150rpx;
+	box-shadow: 0px 0px 12px 0px rgba(100, 100, 111, 0.2);
+}
+
+.list .item .left .mark {
+	font-size: 20rpx;
+	background-color: var(--projectCompareColor);
+	padding: 4rpx 10rpx;
+	position: absolute;
+	top: -20rpx;
+	left: 0;
+	z-index: 9;
+	border-top-left-radius: 20rpx;
+	border-bottom-right-radius: 10rpx;
+	color: #fff;
+}
+
+
+.list .item .left>image {
+	width: inherit;
+	height: 220rpx;
+	border-radius: 20rpx; 
+	margin-top: -20rpx;
+}
+
+.list .item .right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 14rpx 10rpx 14rpx 0;
+}
+
+.list .item .right .line1 {
+	width: 100%;
+	margin-bottom: 10rpx;
+	display: flex;
+	align-items: center;
+}
+
+.list .item .right .line1 .t0 {
+	font-size: 22rpx;
+	color: #ccc;
+	padding: 0 10rpx;
+}
+
+.list .item .right .line1 .t1 {
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #333;
+}
+
+.list .item .right .line1 .t2 {
+	font-size: 24rpx;
+	color: #777;
+}
+
+.list .item .right .tag-list {
+	width: 100%;
+	font-size: 22rpx;
+	text-align: left;
+	padding: 6rpx 0;
+}
+
+.list .item .right .tag-list .tag-item {
+	padding: 5rpx 10rpx;
+	border-radius: 10rpx;
+	margin-left: 10rpx;
+	color: #666;
+}
+
+.list .item .right .tag-list .tag-item:first-child {
+	margin-left: 0rpx;
+}
+
+
+.list .item .right .line2 { 
+	width: 100%;
+	font-size: 24rpx;
+	color: #999;
+	padding:4rpx 0;
+} 
+
+.query-box {
+	display: flex;
+}
+
+.query-box .query-btn {
+	background-color: var(--projectColor);
+	color: #fff;
+	font-size: 26rpx;
+	padding: 10rpx 20rpx;
+	margin-right: 10rpx;
+	border-radius: 10rpx;
+}
+
+/*modal*/
+.modal .dialog {
+	border-radius: 0rpx;
+	width: 100%;
+}
+
+.modal .dialog .query {
+	width: 100%;
+	padding: 0rpx 20rpx;
+}
+
+.modal .dialog .query .title {
+	width: 100%;
+	text-align: left;
+	padding: 0rpx 14rpx;
+	font-size: 30rpx;
+	font-weight: bold;
+	margin-top: 30rpx;
+	margin-bottom: 10rpx;
+}
+
+
+.modal .dialog .query .tag-list {
+	width: 100%;
+	font-size: 24rpx;
+	text-align: left;
+	padding: 2rpx 10rpx;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.modal .dialog .query .tag-list .tag-item {
+	padding: 8rpx 26rpx;
+	border-radius: 6rpx;
+	margin-left: 12rpx;
+	color: #666;
+	margin-bottom: 14rpx;
+	background-color: #eee;
+}
+
+.modal .dialog .query .tag-list.tag1>text .bg-green {
+	background-color: var(--green) !important
+}
+
+.modal .dialog .query .tag-list .tag-item:first-child {
+	margin-left: 0rpx;
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+1) {
+	color: var(--red)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+2) {
+	color: var(--purple)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+3) {
+	color: var(--blue)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+4) {
+	color: var(--brown)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+5) {
+	color: var(--pink)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+6) {
+	color: var(--yellow)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+7) {
+	color: var(--orange)
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+1) {
+	background-color: #d5ede0
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+2) {
+	background-color: #ede1d5
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+3) {
+	background-color: #d5eced
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+4) {
+	background-color: #edd5d5
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+5) {
+	background-color: #e8d5ed
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+6) {
+	background-color: #ede1d5
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+7) {
+	background-color: #d5edeb
+}
+
+
+.modal .dialog .price-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0rpx 50rpx;
+}
+
+.modal .dialog .price-container .title {
+	font-size: 32rpx;
+}
+
+.modal .dialog .price-container .slider {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.modal .dialog .price-container .hint {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 30rpx;
+}
+
+.modal .dialog>.bar:first-child .action {
+	min-width: 60rpx;
+	min-height: 60rpx;
+}
+
+.action .btn {
+	padding: 30rpx 80rpx;
+	font-size: 30rpx;
+}

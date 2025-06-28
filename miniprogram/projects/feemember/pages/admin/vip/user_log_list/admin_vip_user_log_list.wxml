@@ -1,0 +1,93 @@
+<block wx:if="{{isAdmin&&isLoad}}">
+	<cmpt-comm-list source='admin' type="admin-vip-user-log-list" search="{{search||''}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="admin/vip_user_log_list" sortMenusDefaultIndex="0" topBottom="50" placeholder="用户名，手机" bind:list="bindCommListCmpt">
+
+		<view slot="searchEnd">
+		</view>
+		<!-- List Begin -->
+		<view class="admin-comm-list">
+			<view wx:if="{{dataList && dataList.total }}" class="load text-grey">共有{{dataList.total}}条符合条件记录</view>
+
+			<view class="item" wx:for="{{dataList.list}}" wx:key="key">
+				<view class="no">{{index+1}}</view>
+
+				<view class="info">
+
+					<view class="info-item">
+						<view class="title">状态</view>
+						<view class="mao">：</view>
+						<view wx:if="{{item.USER_LOG_STATUS==0}}" class="content">待支付</view>
+						<view wx:if="{{item.USER_LOG_STATUS==1}}" class="content text-green">已成功</view>
+						<view wx:if="{{item.USER_LOG_STATUS==98}}" class="content text-purple">用户取消</view>
+						<view wx:if="{{item.USER_LOG_STATUS==99}}" class="content">系统取消</view>
+					</view>
+
+					<block>
+						<view class="info-item">
+							<view class="title">支付状态</view>
+							<view class="mao">：</view>
+							<view wx:if="{{item.USER_LOG_PAY_STATUS==0}}" class="content">未支付</view>
+							<view wx:if="{{item.USER_LOG_PAY_STATUS==1}}" class="content text-green">已支付</view>
+							<view wx:if="{{item.USER_LOG_PAY_STATUS==8}}" class="content text-purple">已退款</view>
+							<view wx:if="{{item.USER_LOG_PAY_STATUS==99}}" class="content">无须支付</view>
+						</view>
+						<view class="info-item">
+							<view class="title">支付时间</view>
+							<view class="mao">：</view>
+							<view class="content">{{item.USER_LOG_ADD_TIME}}</view>
+						</view>
+					</block>
+
+					<view class="info-item" wx:if="{{item.USER_LOG_STATUS==98||item.USER_LOG_STATUS==99}}">
+						<view class="title">取消时间</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.USER_LOG_CANCEL_TIME}}</view>
+					</view>
+
+					<view class="info-item">
+						<view class="title">时间</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.USER_LOG_ADD_TIME}}</view>
+					</view>
+
+					<view class="info-item" bindtap="url" data-type="phone" data-url="{{item.user.USER_MOBILE}}">
+						<view class="title">用户</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.user.USER_NAME}} {{item.user.USER_MOBILE}}<text class="icon-phone margin-right"></text> <text capture-catch:tap="url" data-url="../../user/detail/admin_user_detail?id={{item.USER_LOG_USER_ID}}">[详情]</text></view>
+					</view>
+
+					<!--<view class="info-item" bindtap="url" data-type="copy" data-url="{{item.USER_LOG_PAY_TRADE_NO}}">
+						<view class="title">支付订单号</view>
+						<view class="mao">：</view>
+						<view class="content">{{item.USER_LOG_PAY_TRADE_NO}}<text class="icon-copy"></text></view>
+					</view>-->
+
+					<view class="info-item">
+						<view class="title">金额</view>
+						<view class="mao">：</view>
+						<view class="content"> ¥{{item.USER_LOG_PAY_FEE/100}} </view>
+					</view>
+
+					 
+
+					<view class="oprt">
+						<block wx:if="{{(item.USER_LOG_PAY_STATUS==1||USER_LOG_PAY_STATUS==99)}}">
+							<view bindtap="bindCancelTap" data-idx="{{index}}" data-id="{{item._id}}" class="btn bg-orange margin-right-s light"><text class="icon-delete margin-right-xs"></text>取消并退款</view>
+						</block>
+					</view>
+
+				</view>
+
+			</view>
+
+		</view>
+		<!-- List END -->
+
+		<!--load begin-->
+		<import src="../../../../../../tpls/public/list_load_tpl.wxml" />
+		<template is="listLoadTpl" data="{{dataList,skin:'text-grey'}}" />
+		<!--load end-->
+
+
+	</cmpt-comm-list>
+
+</block>

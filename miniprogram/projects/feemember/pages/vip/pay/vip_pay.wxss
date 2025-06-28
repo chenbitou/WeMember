@@ -1,0 +1,79 @@
+@import "../../../style/skin.wxss";
+
+
+page {
+	background-color: #fff;
+}
+
+.main {
+	padding: 60rpx 30rpx;
+}
+
+.price-list {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.price-list .item {
+	width: calc((100% - 30rpx) / 2); 
+	background-color: #fafafa;
+	border: 2rpx solid #ccc;
+	display: flex;
+	padding: 40rpx;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	margin-bottom: 30rpx; 
+	border-radius: 15rpx;
+}
+
+.price-list .item:nth-child(2n+1) {
+	margin-right: 30rpx;
+}
+
+.price-list .item.cur {
+	background-color: var(--projectColor);
+	border: 2rpx solid var(--projectColorLight);
+}
+
+.price-list .item .title {
+	font-size: 36rpx;
+	color: #000;
+}
+
+.price-list .item .desc {
+	font-size: 24rpx;
+	color: #999;
+	margin-top: 15rpx;
+}
+
+.price-list .item.cur .desc { 
+	color: #fff; 
+}
+
+.btn-base {
+	margin-top:60rpx;
+}
+
+.hint {
+	width: 100%;
+	margin-top: 30rpx;
+	background-color: #f8f8f8;
+	padding: 30rpx;
+	border-radius: 10rpx;
+}
+
+.hint .title {
+	font-size: 28rpx;
+	font-weight: bold;
+	margin-bottom: 15rpx;
+	color: #000;
+}
+
+.hint .desc {
+	font-size: 25rpx;
+	line-height: 1.5;
+	color: #999;
+	border-radius: 10rpx;
+}

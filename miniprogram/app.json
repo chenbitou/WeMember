@@ -1,0 +1,96 @@
+{
+	"pages": [
+		"projects/feemember/pages/default/index/default_index",
+		"projects/feemember/pages/about/index/about_index",
+		"projects/feemember/pages/search/search",
+		"projects/feemember/pages/my/index/my_index",
+		"projects/feemember/pages/my/reg/my_reg",
+		"projects/feemember/pages/my/edit/my_edit",
+		"projects/feemember/pages/my/foot/my_foot",
+		"projects/feemember/pages/my/fav/my_fav",
+		"projects/feemember/pages/news/index/news_index",
+		"projects/feemember/pages/news/detail/news_detail",
+		"projects/feemember/pages/news/cate1/news_cate1",
+		"projects/feemember/pages/admin/news/list/admin_news_list",
+		"projects/feemember/pages/admin/news/add/admin_news_add",
+		"projects/feemember/pages/admin/news/edit/admin_news_edit",
+		"projects/feemember/pages/admin/setup/about/admin_setup_about",
+		"projects/feemember/pages/admin/setup/about_list/admin_setup_about_list",
+		"projects/feemember/pages/admin/setup/qr/admin_setup_qr",
+		"projects/feemember/pages/admin/index/home/admin_home",
+		"projects/feemember/pages/admin/index/login/admin_login",
+		"projects/feemember/pages/admin/content/admin_content",
+		"projects/feemember/pages/admin/mgr/log/admin_log_list",
+		"projects/feemember/pages/admin/mgr/edit/admin_mgr_edit",
+		"projects/feemember/pages/admin/mgr/list/admin_mgr_list",
+		"projects/feemember/pages/admin/mgr/add/admin_mgr_add",
+		"projects/feemember/pages/admin/mgr/pwd/admin_mgr_pwd",
+		"projects/feemember/pages/admin/user/list/admin_user_list",
+		"projects/feemember/pages/admin/user/detail/admin_user_detail",
+		"projects/feemember/pages/admin/user/export/admin_user_export",
+		"projects/feemember/pages/admin/user/edit/admin_user_edit",
+		"projects/feemember/pages/vip/pay/vip_pay",
+		"projects/feemember/pages/admin/user/flow/admin_user_flow",
+		"projects/feemember/pages/admin/vip/user_log_list/admin_vip_user_log_list",
+		"projects/feemember/pages/vip/my_user_log_list/vip_my_user_log_list",
+		"projects/feemember/pages/vip/card/vip_card",
+		"projects/feemember/pages/admin/vip/fee/admin_vip_fee",
+		"projects/feemember/pages/admin/vip/time/admin_vip_time",
+		"projects/feemember/pages/about/notice/about_notice",
+		"projects/feemember/pages/user/index/user_index",
+		"projects/feemember/pages/user/detail/user_detail",
+		"cmpts/public/form/form_set/field/form_set_field",
+		"cmpts/public/form/form_show/content/form_show_content",
+		"pages/test1/test1"
+	],
+	"window": {
+		"backgroundColor": "#f1f1f1",
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#222222",
+		"navigationBarTitleText": "会员登记缴费小程序",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"custom": false,
+		"backgroundColor": "#FFFFFF",
+		"color": "#999999",
+		"selectedColor": "#222222",
+		"list": [
+			{
+				"pagePath": "projects/feemember/pages/default/index/default_index",
+				"text": "首页",
+				"iconPath": "/projects/feemember/images/tabbar/home.png",
+				"selectedIconPath": "/projects/feemember/images/tabbar/home_cur.png"
+			},
+			{
+				"pagePath": "projects/feemember/pages/news/index/news_index",
+				"text": "公告通知",
+				"iconPath": "/projects/feemember/images/tabbar/news.png",
+				"selectedIconPath": "/projects/feemember/images/tabbar/news_cur.png"
+			},
+			{
+				"pagePath": "projects/feemember/pages/user/index/user_index",
+				"text": "找会员",
+				"iconPath": "/projects/feemember/images/tabbar/user.png",
+				"selectedIconPath": "/projects/feemember/images/tabbar/user_cur.png"
+			},
+			{
+				"pagePath": "projects/feemember/pages/my/index/my_index",
+				"text": "我的",
+				"iconPath": "/projects/feemember/images/tabbar/my.png",
+				"selectedIconPath": "/projects/feemember/images/tabbar/my_cur.png"
+			}
+		]
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "获取你当前位置信息用于小程序位置接口的效果展示"
+		}
+	},
+	"usingComponents": {
+		"cmpt-comm-list": "/cmpts/public/list/comm_list_cmpt",
+		"cmpt-picker": "/cmpts/public/picker/picker_cmpt",
+		"cmpt-modal": "/cmpts/public/modal/modal_cmpt"
+	},
+	"sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,56 @@
+<block wx:if="{{isLoad&&isLogin}}">
+	<cmpt-comm-list type="vip_my_user_log_list" search="{{search||''}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="vip/my_user_log_list" isTotalMenu="{{false}}" sortMenusDefaultIndex="0" topBottom="120" placeholder="搜索标题" bind:list="bindCommListCmpt">
+
+		<view slot="searchEnd">
+
+		</view>
+
+		<!-- List Begin -->
+		<view class="text-pic-list-box padding-project">
+
+			<view class="item card-project shadow-project" wx:for="{{dataList.list}}" wx:key="index">
+				<view class="author">时间：{{item.USER_LOG_ADD_TIME}} </view>
+
+
+				<view class="author">
+					<text wx:if="{{item.USER_LOG_STATUS==0}}" class="content text-blue">状态：待支付</text>
+					<text wx:if="{{item.USER_LOG_STATUS==1}}" class="content text-green">状态：已成功</text>
+					<text wx:if="{{item.USER_LOG_STATUS==98}}" class="content text-red">状态：用户取消</text>
+					<text wx:if="{{item.USER_LOG_STATUS==99}}" class="content text-orange">状态：系统取消</text>
+				</view>
+
+				<block>
+					<view class="author">金额：¥{{item.USER_LOG_PAY_FEE/100}} </view>
+
+					<view class="author">
+						<text wx:if="{{item.USER_LOG_PAY_STATUS==0}}">支付状态：未支付 </text>
+						<text wx:elif="{{item.USER_LOG_PAY_STATUS==1}}">支付状态：已支付 </text>
+						<text wx:elif="{{item.USER_LOG_PAY_STATUS==8}}">支付状态：已退款 </text>
+						<text wx:elif="{{item.USER_LOG_PAY_STATUS==99}}">支付状态：无需支付 </text>
+					</view>
+
+				</block>
+
+				<view wx:if="{{item.USER_LOG_STATUS==98||item.USER_LOG_STATUS==99}}" class="author">取消时间：{{item.USER_LOG_CANCEL_TIME}} </view>
+
+
+			<!--	<view class="oprt" wx:if="{{ item.USER_LOG_STATUS==1&&item.USER_LOG_PAY_STATUS==1 }}">
+					<view bind:tap="bindCancelTap" data-idx="{{index}}" class="btn mid radius">取消缴费</view>
+				</view>-->
+
+			</view>
+
+			<!--load begin-->
+			<import src="../../../../../tpls/public/list_load_tpl.wxml" />
+			<template is="listLoadTpl" data="{{skin:'load-project', dataList}}" />
+			<!--load end-->
+
+		</view>
+		<!-- List END -->
+
+	</cmpt-comm-list>
+
+	<!--  button Begin -->
+	<!--  button END -->
+
+</block>

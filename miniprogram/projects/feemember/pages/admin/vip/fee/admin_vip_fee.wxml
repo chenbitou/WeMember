@@ -1,0 +1,11 @@
+<view wx:if="{{!isLoad}}" class="margin-top load loading text-l text-grey"></view>
+<view class="main" wx:if="{{isAdmin&&isLoad}}">
+	<view class="form-box shadow margin-top-xs">
+		<view class="info">
+			<view class="desc"><text class="icon-info margin-right-xs"></text>执行本操作后，所有的用户都将置为未缴费状态</view>
+		</view>
+	</view> 
+ 
+
+	<button bindtap="bindFormSubmit" class="btn-base btn-admin shadow  margin-top-xs">马上清除</button>
+</view>

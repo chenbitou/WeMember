@@ -1,0 +1,17 @@
+<view class="main"> 
+	<view class="card">
+		<view class="mark">VIP</view>
+		<view class="line1">会员卡</view>
+		<view class="line2">
+			<view class="left">
+				<text class="name">{{user.USER_NAME}}</text>
+				<text class="txt">性别：{{user.USER_OBJ.sex}}</text>
+				<text class="txt">出生日期：{{user.USER_OBJ.birth}}</text>
+				<text class="txt">有效期：{{user.USER_VIP_START_DAY}} ~ {{user.USER_VIP_DAY}}</text>
+			</view>
+			<view class="right">
+				<image class="shadow" src="{{user.USER_OBJ.avatar}}"  mode="aspectFill" lazy-load="{{true}}" />
+			</view>
+		</view>
+	</view>
+</view>

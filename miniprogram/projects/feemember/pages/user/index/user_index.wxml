@@ -1,0 +1,118 @@
+<view wx:if="{{!_params}}" class="margin-top load loading text-l load-project"></view>
+<block wx:else>
+	<wxs src="../../../../../tpls/wxs/tools.wxs" module="tools" />
+	<cmpt-comm-list id="list" pulldownType="{{['modal']}}" type="user-list" sortMenusDefaultIndex="0" _params="{{_params}}" search="{{search||''}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="user/list" topBottom="120" placeholder="搜索" bind:list="bindCommListCmpt">
+		<view slot="searchEnd" class="query-box">
+			<!--<button bindtap="bindResetTap" class="btn radius bg-green light text-white margin-right-s">重置</button>-->
+			<view bindtap="bindOpenModalTap" data-box="city" class="query-btn btn-bg"><text class="icon-unfold margin-right-xxs"></text>{{city[0]||'城市'}}</view>
+			<view bindtap="bindOpenModalTap" data-box="trade" class="query-btn btn-bg"><text class="icon-unfold margin-right-xxs"></text>{{trade[0]||'行业'}}</view>
+			<view bindtap="bindOpenModalTap" data-box="other" class="query-btn btn-bg"><text class="icon-unfold margin-right-xxs"></text>筛选</view>
+		</view>
+		<view class="main margin-top-s">
+			<view class="list">
+				<view class="item shadow-project" wx:for="{{dataList.list}}" wx:key="key" bindtap="url" data-url="../detail/user_detail?id={{item._id}}">
+					<view class="left">
+						<view class="mark btn-bg" wx:if="{{item.USER_PAY_STATUS==1}}">会员</view>
+						<image class="loading shadow-project" mode="aspectFill" lazy-load="{{true}}" src="{{item.USER_OBJ.avatar[0]}}" />
+					</view>
+
+					<view class="right">
+						<view class="line1 content-cut-one">
+							<text class="t1">{{item.USER_NAME}}</text>
+							<text class="t0">|</text>
+							<text class="t2">{{item.USER_OBJ.sex}}</text>
+							<text class="padding-left-xs padding-right-xs text-gray">-</text>
+							<text class="t2">{{item.USER_OBJ.trade}}</text>
+						</view>
+						<view class="tag-list tag2">
+							<text class="tag-item tag-item{{idx}}" wx:for="{{item.USER_OBJ.xingqu }}" wx:key="k" wx:for-item="itm" wx:for-index="idx" wx:if="{{idx<3}}">{{itm}}</text>
+						</view>
+						<view class="line2 content-cut-one"><text class="icon-location"></text>{{item.USER_OBJ.city}}</view>
+						<view class="line2 content-cut-one"><text class="icon-moreandroid"></text>{{item.USER_OBJ.gzdw}}</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+
+		<!--load begin-->
+		<import src="../../../../../tpls/public/list_load_tpl.wxml" />
+		<template is="listLoadTpl" data="{{skin:'load-project',dataList}}" />
+		<!--load end-->
+
+	</cmpt-comm-list>
+
+	<!-- 对话窗口 begin -->
+	<view class="modal show" wx:if="{{showModal}}">
+		<view class="dialog">
+			<view class="bar bg-white justify-end" bindtap="bindHideModalTap">
+				<view class="content">
+					<text wx:if="{{showBox=='other'}}">条件筛选</text>
+					<text wx:elif="{{showBox=='city'}}">城市筛选</text>
+					<text wx:elif="{{showBox=='trade'}}">行业筛选</text>
+				</view>
+				<view class="action">
+					<text class="icon-close text-red text-bold"></text>
+				</view>
+			</view>
+
+			<block wx:if="{{showBox=='city'}}">
+				<view class="query">
+					<view class="title">城市（可多选）</view>
+					<view class="tag-list">
+						<text bind:tap="bindCityTap" class="tag-item {{tools.includes(city,itm)?'bg-orange':''}}" wx:for="{{projectSetting.USER_CITY}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-city="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+			</block>
+
+			<block wx:if="{{showBox=='trade'}}">
+				<view class="query">
+					<view class="title">行业（可多选）</view>
+					<view class="tag-list">
+						<text bind:tap="bindTradeTap" class="tag-item  {{tools.includes(trade,itm)?'bg-orange':''}}" wx:for="{{projectSetting.USER_TRADE}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-trade="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+			</block>
+
+			<block wx:if="{{showBox=='other'}}">
+
+				<view class="query">
+					<view class="title">兴趣爱好（可多选）</view>
+					<view class="tag-list tag1">
+						<text bind:tap="bindTagTap" class="tag-item tag-item{{idx}} {{tools.includes(tag,itm)?'bg-orange':''}}" wx:for="{{projectSetting.USER_TAG}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-tag="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+
+				<view class="query">
+					<view class="title">年龄下限 <text class="text-red text-normal">({{birthMin}}岁)</text></view>
+				</view>
+				<view class="price-container">
+					<slider class="slider" min="0" max="100" step="1" bindchanging="onSliderMinChange" bindchange="onSliderMinChange" activeColor="#DBB183" block-size="28" color="#333333" value="{{birthMin}}" block-size="20" block-color="#DBB183" />
+				</view>
+				<view class="query">
+					<view class="title">年龄上限 <text class="text-red text-normal">({{birthMax}}岁)</text></view>
+				</view>
+				<view class="price-container">
+					<slider class="slider" min="0" max="100" step="1" bindchanging="onSliderMaxChange" bindchange="onSliderMaxChange" activeColor="#DBB183" block-size="28" color="#333333" value="{{birthMax}}" block-size="20" block-color="#DBB183" />
+				</view>
+			</block>
+			<view class="bar bg-white justify-end">
+				<view class="action">
+					<button class="btn big line-orange text-project" bindtap="bindResetModalTap">重置</button>
+					<button class="btn big bg-orange margin-left  btn-bg" bindtap="bindQueryModalTap">筛选</button>
+
+				</view>
+			</view>
+
+			<view style="height: 100rpx;"></view>
+		</view>
+	</view>
+	<!-- 对话窗口 end -->
+
+
+	<block wx:if="{{skin.IS_SUB}}">
+		<import src="../../tpls/menu_tpl.wxml" />
+		<template is="menuTpl" data="{{curMenu:'user_index',returnHome:false}}" />
+	</block>
+
+</block>
